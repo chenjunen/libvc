@@ -66,7 +66,7 @@ VALUE-CHAR      {WSP}|{VCHAR}|{NON-ASCII}
 
 <SC_VALUE>
 {
-{VALUE-CHAR}*             { yylval = yytext; return TOK_VALUE; }
+({VALUE-CHAR}|"\n ")*     { yylval = yytext; return TOK_VALUE; }
 "\n"                      { yylval = NULL; BEGIN(INITIAL); return yytext[0]; }
 }
 
